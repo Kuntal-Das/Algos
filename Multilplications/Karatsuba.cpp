@@ -23,46 +23,46 @@ unsigned long long int KaratsubaMult(long long int m,long long int n)
 	return result;
 }
 
-char* KaratsubaMultStr(char* m, char* n)
-{
-	char zero[3] = "00";
-	if (strcmp(m, zero) == 0 || strcmp(n, zero) == 0)
-		return "00";
+// char* KaratsubaMultStr(char* m, char* n)
+// {
+// 	char zero[3] = "00";
+// 	if (strcmp(m, zero) == 0 || strcmp(n, zero) == 0)
+// 		return "00";
 
-	if (strlen(m) > strlen(n))
-		swap(&m, &n);
+// 	if (strlen(m) > strlen(n))
+// 		swap(&m, &n);
 
-	int mLen = strlen(m), nLen = strlen(n);
+// 	int mLen = strlen(m), nLen = strlen(n);
 
-	if (nLen <= 2) return ToStr(atof(m) * atof(n));
+// 	if (nLen <= 2) return ToStr(atof(m) * atof(n));
 
-	if (mLen < 4) {
-		m = AddLeft(m, '0', 4 - mLen);
-		mLen = 4;
-	}
+// 	if (mLen < 4) {
+// 		m = AddLeft(m, '0', 4 - mLen);
+// 		mLen = 4;
+// 	}
 
-	if (nLen < 4) {
-		n = AddLeft(n, '0', 4 - nLen);
-		nLen = 4;
-	}
-
-
-	int midLen = nLen / 2;
-	int fPart = nLen - midLen;
-
-	char* a = SubString(m, 0, mLen - fPart);
-	char* b = SubString(m, mLen - fPart, fPart);
-	char* c = SubString(n, 0, nLen - fPart);
-	char* d = SubString(n, nLen - fPart, fPart);
-
-	char* ac = KaratsubaMultStr(a, c);
-	char* adbc = findSum(KaratsubaMultStr(a, d), KaratsubaMultStr(b, c));
-	char* bd = KaratsubaMultStr(b, d);
+// 	if (nLen < 4) {
+// 		n = AddLeft(n, '0', 4 - nLen);
+// 		nLen = 4;
+// 	}
 
 
-	char* mult = findSum("0", bd);
-	mult = findSum(mult, AddRight(adbc, '0', floor(nLen / 2)));
-	mult = findSum(mult, AddRight(ac, '0', 2 * floor(nLen / 2)));
+// 	int midLen = nLen / 2;
+// 	int fPart = nLen - midLen;
 
-	return mult;
-}
+// 	char* a = SubString(m, 0, mLen - fPart);
+// 	char* b = SubString(m, mLen - fPart, fPart);
+// 	char* c = SubString(n, 0, nLen - fPart);
+// 	char* d = SubString(n, nLen - fPart, fPart);
+
+// 	char* ac = KaratsubaMultStr(a, c);
+// 	char* adbc = findSum(KaratsubaMultStr(a, d), KaratsubaMultStr(b, c));
+// 	char* bd = KaratsubaMultStr(b, d);
+
+
+// 	char* mult = findSum("0", bd);
+// 	mult = findSum(mult, AddRight(adbc, '0', floor(nLen / 2)));
+// 	mult = findSum(mult, AddRight(ac, '0', 2 * floor(nLen / 2)));
+
+// 	return mult;
+// }

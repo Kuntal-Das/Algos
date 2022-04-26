@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "Multilplications/Multiplication.h"
 #include "LcmGcd/LcmGcd.h"
+#include "Helpers/Helpers.h"
 #include "MatrixOp/Matrix.h"
 
 int main()
@@ -24,6 +25,8 @@ int main()
 
         switch (ch)
         {
+        case 0:
+            break;
         case 1:
         {
             printf("\n\n----------------Larusa Multiplication--------------------\n\n");
