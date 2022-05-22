@@ -5,12 +5,13 @@ typedef struct matrix2d
 {
     int row;
     int column;
-    double* data;
+    double *data;
 } matrix2d;
 
+matrix2d *MakeMatrix(int t_rows, int t_cols);
 
-matrix2d* MakeMatrix(int t_rows, int t_cols);
-//matrix2d* ScanMatrix(int** matrix);
-void PrintMatrix(matrix2d* m);
+void ScanMatrix(matrix2d *matrix, char *matName);
+
+void PrintMatrix(matrix2d *m, char *matName);
 
 #endif // MATRIX_H_INCLUDED

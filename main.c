@@ -6,7 +6,7 @@
 
 int main()
 {
-    int ch;
+    int ch, row, col;
     long p, q, result1, result2;
     long long int x, y;
     unsigned long long int result;
@@ -68,9 +68,34 @@ int main()
         case 4:
         {
             printf("\n\n---------------Matrix Multiplication---------------------\n\n");
-            matrix2d *A = MakeMatrix(3, 3);
-            matrix2d *B = MakeMatrix(3, 3);
-            PrintMatrix(A);
+            printf("Enter no of Row for First Matrix A: ");
+            scanf("%d", &row);
+            printf("Enter no of Row for First Matrix A: ");
+            scanf("%d", &col);
+            if (row <= 0 || col <= 0)
+            {
+                printf("Entered Row(%d) and Column(%d) value is invalid\n", row, col);
+                break;
+            }
+            char tMatxA[] = "A";
+            matrix2d *A = MakeMatrix(row, col);
+
+            printf("Enter no of Row for First Matrix B : ");
+            scanf("%d", &row);
+            printf("Enter no of Row for First Matrix B : ");
+            scanf("%d", &col);
+            if (row <= 0 || col <= 0)
+            {
+                printf("Entered Row(%d) and Column(%d) value is invalid\n", row, col);
+                break;
+            }
+            char tMatxB[] = "B";
+            matrix2d *B = MakeMatrix(row, col);
+
+            ScanMatrix(A, tMatxA);
+            ScanMatrix(B, tMatxB);
+            PrintMatrix(A, tMatxA);
+            PrintMatrix(B, tMatxB);
             break;
         }
         default:
