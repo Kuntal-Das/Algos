@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "Multilplications/Multiplication.h"
 #include "LcmGcd/LcmGcd.h"
-#include "Helpers/Helpers.h"
 #include "MatrixOp/Matrix.h"
 
 int main()
@@ -70,6 +69,7 @@ int main()
         {
             printf("\n\n---------------Matrix Multiplication---------------------\n\n");
             matrix2d *A = MakeMatrix(3, 3);
+            matrix2d *B = MakeMatrix(3, 3);
             PrintMatrix(A);
             break;
         }

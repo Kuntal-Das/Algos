@@ -1,8 +1,10 @@
 #include "Matrix.h"
-#include <iostream>
-#include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>
+// #include <iostream>
+// #include <cstdlib>
 
-using namespace std;
+// using namespace std;
 
 matrix2d *MakeMatrix(int t_rows, int t_cols)
 {
@@ -10,7 +12,8 @@ matrix2d *MakeMatrix(int t_rows, int t_cols)
     tempMat->row = t_rows;
     tempMat->column = t_cols;
 
-    tempMat->data = (double *)malloc(sizeof(double) * t_rows * t_cols);
+    // tempMat->data = (double *)malloc(sizeof(double) * t_rows * t_cols);
+    tempMat->data = (double *)calloc(t_rows * t_cols, sizeof(double));
 
     return tempMat;
 }

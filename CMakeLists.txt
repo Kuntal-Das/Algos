@@ -4,8 +4,12 @@ project(algos VERSION 0.1.0)
 # include(CTest)
 # enable_testing()
 
-# add_executable(algos Helpers/Helpers.cpp LcmGcd/Gcd.cpp MatrixOp/Matrix.cpp Multilplications/Karatsuba.cpp Multilplications/Larusa.cpp)
-add_executable(algos Helpers/Helpers.cpp LcmGcd/Gcd.cpp MatrixOp/Matrix.cpp Multilplications/Karatsuba.cpp Multilplications/Larusa.cpp main.cpp)
+add_executable(algos 
+Helpers/Helpers.c
+LcmGcd/Gcd.c
+MatrixOp/Matrix.c 
+Multilplications/Karatsuba.c 
+Multilplications/Larusa.c main.c)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
