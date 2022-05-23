@@ -78,7 +78,7 @@ int main()
                 break;
             }
             char tMatxA[] = "A";
-            matrix2d *A = MakeMatrix(row, col);
+            matrix2d *A = MakeMatrix(row, col, tMatxA);
 
             printf("Enter no of Row for First Matrix B : ");
             scanf("%d", &row);
@@ -90,12 +90,17 @@ int main()
                 break;
             }
             char tMatxB[] = "B";
-            matrix2d *B = MakeMatrix(row, col);
+            matrix2d *B = MakeMatrix(row, col, tMatxB);
 
-            ScanMatrix(A, tMatxA);
-            ScanMatrix(B, tMatxB);
-            PrintMatrix(A, tMatxA);
-            PrintMatrix(B, tMatxB);
+            ScanMatrix(A);
+            PrintMatrix(A);
+            ScanMatrix(B);
+            PrintMatrix(B);
+            matrix2d *result = _NativeMultiplyMatrix(*A, *B);
+            PrintMatrix(result);
+            free(A);
+            free(B);
+            free(result);
             break;
         }
         default:
