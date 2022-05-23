@@ -2,6 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 int Length(long num)
 {
@@ -117,20 +118,60 @@ char *findSum(char *str1, char *str2)
 	return result;
 }
 
-char *ConcatStr(char *str1, char *str2)
+char *ConcatStr(int n_args, ...)
 {
-	int i, len1 = strlen(str1);
-	int newLength = len1 + strlen(str2);
-	char *result = malloc((sizeof(char) * newLength) + 1);
-	// strcpy(result, str1);
-	for (i = 0; i < newLength; i++)
+	register int i, j;
+	int len1, newlength = 0, oldLength = 0;
+	char *str, *result = NULL;
+	va_list ap;
+
+	// va_start(ap, n_args);
+	// max = va_arg(ap, int);
+	// for (i = 2; i <= n_args; i++)
+	// {
+	// 	if ((a = va_arg(ap, int)) > max)
+	// 		max = a;
+	// }
+
+	// va_end(ap);
+	// return max;
+
+	va_start(ap, n_args);
+	for (i = 0; i < n_args; i++)
 	{
-		if (i < len1)
-			result[i] = str1[i];
+		str = va_arg(ap, char *);
+
+		oldLength = (result == NULL) ? 0 : strlen(result);
+		newlength += strlen(str);
+
+		// if(oldLength==newlength) break;
+
+		if (result == NULL)
+			result = (char *)malloc(newlength * sizeof(char) + 1);
 		else
-			result[i] = str2[i - len1];
+			result = (char *)realloc(result, newlength + 1);
+
+		for (j = oldLength; j < newlength; j++)
+		{
+			result[j] = str[j - oldLength];
+		}
+		result[j] = '\0';
 	}
-	result[i] = '\0';
+	va_end(ap);
+
+	// len1 = strlen(n_args);
+
+	// newlength = len1 + strlen(str2);
+	// char *result = (char *)malloc((sizeof(char) * newlength) + 1);
+	// strcpy(result, str1);
+	// for (i = 0; i < newlength; i++)
+	// {
+	// 	if (i < len1)
+	// 		result[i] = n_args[i];
+	// 	else
+	// 		result[i] = str2[i - len1];
+	// }
+	// result[i] = '\0';
 
 	return result;
 }

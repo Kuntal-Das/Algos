@@ -10,6 +10,6 @@ char *ToStr(long num);
 char *SubString(char *str, int startIndex, int endIndex);
 char *AddRight(char *str, char ch, int num);
 char *AddLeft(char *str, char ch, int num);
-char *ConcatStr(char *str1, char *str2);
+char *ConcatStr(int n_args, ...);
 
 #endif // HELPERS_H_INCLUDED
