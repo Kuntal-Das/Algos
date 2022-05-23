@@ -125,17 +125,6 @@ char *ConcatStr(int n_args, ...)
 	char *str, *result = NULL;
 	va_list ap;
 
-	// va_start(ap, n_args);
-	// max = va_arg(ap, int);
-	// for (i = 2; i <= n_args; i++)
-	// {
-	// 	if ((a = va_arg(ap, int)) > max)
-	// 		max = a;
-	// }
-
-	// va_end(ap);
-	// return max;
-
 	va_start(ap, n_args);
 	for (i = 0; i < n_args; i++)
 	{
@@ -143,8 +132,6 @@ char *ConcatStr(int n_args, ...)
 
 		oldLength = (result == NULL) ? 0 : strlen(result);
 		newlength += strlen(str);
-
-		// if(oldLength==newlength) break;
 
 		if (result == NULL)
 			result = (char *)malloc(newlength * sizeof(char) + 1);
@@ -158,20 +145,6 @@ char *ConcatStr(int n_args, ...)
 		result[j] = '\0';
 	}
 	va_end(ap);
-
-	// len1 = strlen(n_args);
-
-	// newlength = len1 + strlen(str2);
-	// char *result = (char *)malloc((sizeof(char) * newlength) + 1);
-	// strcpy(result, str1);
-	// for (i = 0; i < newlength; i++)
-	// {
-	// 	if (i < len1)
-	// 		result[i] = n_args[i];
-	// 	else
-	// 		result[i] = str2[i - len1];
-	// }
-	// result[i] = '\0';
 
 	return result;
 }

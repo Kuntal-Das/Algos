@@ -77,8 +77,7 @@ int main()
                 printf("Entered Row(%d) and Column(%d) value is invalid\n", row, col);
                 break;
             }
-            char tMatxA[] = "A";
-            matrix2d *A = MakeMatrix(row, col, tMatxA);
+            matrix2d *A = MakeMatrix(row, col, "A");
 
             printf("Enter no of Row for First Matrix B : ");
             scanf("%d", &row);
@@ -89,14 +88,13 @@ int main()
                 printf("Entered Row(%d) and Column(%d) value is invalid\n", row, col);
                 break;
             }
-            char tMatxB[] = "B";
-            matrix2d *B = MakeMatrix(row, col, tMatxB);
+            matrix2d *B = MakeMatrix(row, col, "B");
 
             ScanMatrix(A);
             PrintMatrix(A);
             ScanMatrix(B);
             PrintMatrix(B);
-            matrix2d *result = _NativeMultiplyMatrix(*A, *B);
+            matrix2d *result = MultiplyMatrix(*A, *B);
             PrintMatrix(result);
             free(A);
             free(B);

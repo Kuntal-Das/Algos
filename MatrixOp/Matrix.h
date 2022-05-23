@@ -9,14 +9,12 @@ typedef struct matrix2d
     double *data;
 } matrix2d;
 
-matrix2d *MakeMatrix(int t_rows, int t_cols, char *name);
-
+matrix2d *MakeMatrix(int t_rows, int t_cols, char* name);
 void ScanMatrix(matrix2d *matrix);
-
 void PrintMatrix(matrix2d *m);
 
 matrix2d *MultiplyMatrix(matrix2d matA, matrix2d matB);
-matrix2d *_StrassensMultiplyMatrix(matrix2d matA, matrix2d matB);
+matrix2d *_StrassensMultiplyMatrix2x2(matrix2d matA, matrix2d matB);
 matrix2d *_NativeMultiplyMatrix(matrix2d matA, matrix2d matB);
 
 #endif // MATRIX_H_INCLUDED
