@@ -3,54 +3,60 @@
 #include <math.h>
 #include <stdlib.h>
 
-int Length(long num) {
-	if (num / 10 == 0) return 1;
+int Length(long num)
+{
+	if (num / 10 == 0)
+		return 1;
 	return 1 + Length(num / 10);
 }
 
-void swap(char** str1, char** str2) {
-	char* t = *str1;
+void swap(char **str1, char **str2)
+{
+	char *t = *str1;
 	*str1 = *str2;
 	*str2 = t;
 }
 
-char* ToStr(long num)
+char *ToStr(long num)
 {
 	int size = (int)(log10(num));
-	char* charArr = (char*)calloc(size + 1, sizeof(char));
+	char *charArr = (char *)calloc(size + 1, sizeof(char));
 
 	sprintf(charArr, "%ld", num);
 
 	return charArr;
 }
 
-char* SubString(char* str, int startIndex, int chNums)
+char *SubString(char *str, int startIndex, int chNums)
 {
-	char* subStr = (char*)calloc(chNums + 1, sizeof(char));
-	for (int i = 0; i < chNums; i++) {
+	char *subStr = (char *)calloc(chNums + 1, sizeof(char));
+	for (int i = 0; i < chNums; i++)
+	{
 		subStr[i] = (char)str[startIndex++];
 	}
 	return subStr;
 }
 
-char* AddRight(char* str, char ch, int num)
+char *AddRight(char *str, char ch, int num)
 {
 	int size = strlen(str) + num;
-	char* result = (char*)calloc(size + 1, sizeof(char));
+	char *result = (char *)calloc(size + 1, sizeof(char));
 
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++)
+	{
 		result[i] = (i < size - num) ? str[i] : ch;
 	}
 
 	return result;
 }
 
-char* AddLeft(char* str, char ch, int num)
+char *AddLeft(char *str, char ch, int num)
 {
 	int size = strlen(str) + num;
-	char* result = (char*)calloc(size + 1, sizeof(char));
+	char *result = (char *)calloc(size + 1, sizeof(char));
 
-	for (int i = 0, j = 0; i < size; i++) {
+	for (int i = 0, j = 0; i < size; i++)
+	{
 		result[i] = (i < num) ? ch : str[j++];
 	}
 
@@ -58,7 +64,7 @@ char* AddLeft(char* str, char ch, int num)
 }
 
 // Function for finding sum of larger numbers
-char* findSum(char* str1, char* str2)
+char *findSum(char *str1, char *str2)
 {
 	int n1, n2, j, carry = 0;
 	// Before proceeding further, make sure length
@@ -76,7 +82,7 @@ char* findSum(char* str1, char* str2)
 
 	j = 0;
 	carry = 0;
-	char* result = (char*)malloc(sizeof(char) * n2 + 1);
+	char *result = (char *)malloc(sizeof(char) * n2 + 1);
 	for (int i = 0; i < n1; i++)
 	{
 		// Do school mathematics, compute sum of
@@ -84,7 +90,7 @@ char* findSum(char* str1, char* str2)
 		int sum = ((str1[i] - '0') + (str2[i] - '0') + carry);
 
 		result[j++] = sum % 10 + '0';
-		//str.push_back(sum % 10 + '0');
+		// str.push_back(sum % 10 + '0');
 
 		// Calculate carry for next step
 		carry = sum / 10;
@@ -95,19 +101,36 @@ char* findSum(char* str1, char* str2)
 	{
 		int sum = ((str2[i] - '0') + carry);
 		result[j++] = sum % 10 + '0';
-		//str.push_back(sum % 10 + '0');
+		// str.push_back(sum % 10 + '0');
 		carry = sum / 10;
 	}
 
 	// Add remaining carry
 	if (carry)
-		result[j++] = carry + '0'; //str.push_back(carry + '0');
+		result[j++] = carry + '0'; // str.push_back(carry + '0');
 
 	result[j++] = '\0';
 	// reverse resultant string
 	result = strrev(result);
-	//reverse(str.begin(), str.end());
+	// reverse(str.begin(), str.end());
 
 	return result;
 }
 
+char *ConcatStr(char *str1, char *str2)
+{
+	int i, len1 = strlen(str1);
+	int newLength = len1 + strlen(str2);
+	char *result = malloc((sizeof(char) * newLength) + 1);
+	// strcpy(result, str1);
+	for (i = 0; i < newLength; i++)
+	{
+		if (i < len1)
+			result[i] = str1[i];
+		else
+			result[i] = str2[i - len1];
+	}
+	result[i] = '\0';
+
+	return result;
+}
