@@ -10,12 +10,34 @@ int Length(long num)
 		return 1;
 	return 1 + Length(num / 10);
 }
-
-void swap(char **str1, char **str2)
+void Swap(void *arg1, void *arg2, size_t len)
 {
-	char *t = *str1;
-	*str1 = *str2;
-	*str2 = t;
+	unsigned char *p = arg1, *q = arg2, temp;
+	for (size_t i = 0; i != len; i++)
+	{
+		temp = p[i];
+		p[i] = q[i];
+		q[i] = temp;
+	}
+}
+
+void SwapLongByRef(long *arg1, long *arg2)
+{
+	long t = *arg1;
+	*arg1 = *arg2;
+	*arg2 = t;
+}
+void SwapDoubleByRef(double *arg1, double *arg2)
+{
+	double t = *arg1;
+	*arg1 = *arg2;
+	*arg2 = t;
+}
+void SwapStrByRef(char **arg1, char **arg2)
+{
+	char *t = *arg1;
+	*arg1 = *arg2;
+	*arg2 = t;
 }
 
 char *ToStr(long num)
@@ -65,13 +87,13 @@ char *AddLeft(char *str, char ch, int num)
 }
 
 // Function for finding sum of larger numbers
-char *findSum(char *str1, char *str2)
+char *FindSum(char *str1, char *str2)
 {
 	int n1, n2, j, carry = 0;
 	// Before proceeding further, make sure length
 	// of str2 is larger.
 	if (strlen(str1) > strlen(str2))
-		swap(&str1, &str2);
+		SwapStrByRef(&str1, &str2);
 
 	// Calculate length of both string
 	n1 = strlen(str1);
@@ -147,4 +169,20 @@ char *ConcatStr(int n_args, ...)
 	va_end(ap);
 
 	return result;
+}
+
+void FreeMem(int n_args, ...)
+{
+	register int i = 0;
+	void *memory;
+	va_list ap;
+
+	va_start(ap, n_args);
+	for (i = 0; i < n_args; i++)
+	{
+		memory = va_arg(ap, void *);
+		free(memory);
+	}
+
+	va_end(ap);
 }
