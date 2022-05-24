@@ -3,13 +3,14 @@
 #include "Multilplications/Multiplication.h"
 #include "LcmGcd/LcmGcd.h"
 #include "MatrixOp/Matrix.h"
+#include "Helpers/Helpers.h"
 
 int main()
 {
-    int ch, row, col;
-    long p, q, result1, result2;
-    long long int x, y;
-    unsigned long long int result;
+    int ch; // row, col;
+    // long p, q, result1, result2;
+    // long long int x, y;
+    // unsigned long long int result;
 
     while (1)
     {
@@ -29,77 +30,106 @@ int main()
         case 1:
         {
             printf("\n\n----------------Larusa Multiplication--------------------\n\n");
+            long *x = (long *)malloc(sizeof(long));
+            long *y = (long *)malloc(sizeof(long));
             printf("\nEnter two positive integers: \n");
-            scanf("%ld %ld", &p, &q);
+            scanf("%ld %ld", x, y);
 
-            result1 = LarusaMult(p, q);
-            result2 = LarusaMultRecursive(p, q);
+            long *result1 = (long *)malloc(sizeof(long));
+            long *result2 = (long *)malloc(sizeof(long));
+            *result1 = LarusaMult(*x, *y);
+            *result2 = LarusaMultRecursive(*x, *y);
 
             printf("\nThe Result is :\n");
-            printf("\t LarusaMult(%ld, %ld) : %ld \n", p, q, result1);
-            printf("\t LarusaMultRecursive(%ld, %ld) : %ld \n", p, q, result2);
+            printf("\t LarusaMult(%ld, %ld) : %ld \n", *x, *y, *result1);
+            printf("\t LarusaMultRecursive(%ld, %ld) : %ld \n", *x, *y, *result2);
+
+            FreeMem(4, x, y, result1, result2);
             break;
         }
         case 2:
         {
             printf("\n\n---------------Karatsuba---------------------\n\n");
+            long long int *x = (long long int *)malloc(sizeof(long long int));
             printf("\nEnter the first integer: ");
-            scanf("%lld", &x);
+            scanf("%lld", x);
+
+            long long int *y = (long long int *)malloc(sizeof(long long int));
             printf("\nEnter the second integer: ");
-            scanf("%lld", &y);
-            result = KaratsubaMult(x, y);
-            printf("\n\t KaratsubaMult(%lld, %lld) : %llu \n", x, y, result);
+            scanf("%lld", y);
+
+            unsigned long long int *result = (unsigned long long int *)malloc(sizeof(unsigned long long int));
+            *result = KaratsubaMult(*x, *y);
+            printf("\n\t KaratsubaMult(%lld, %lld) : %llu \n", *x, *y, *result);
+
+            FreeMem(3, x, y, result);
             break;
         }
         case 3:
         {
             printf("\n\n---------------GCD---------------------\n\n");
+            long *x = (long *)malloc(sizeof(long));
+            long *y = (long *)malloc(sizeof(long));
             printf("\nEnter two integers: \n");
-            scanf("%ld %ld", &p, &q);
+            scanf("%ld %ld", x, y);
 
-            result1 = Gcd(p, q);
-            result2 = GcdRecursive(p, q);
+            long *result1 = (long *)malloc(sizeof(long));
+            long *result2 = (long *)malloc(sizeof(long));
+            *result1 = Gcd(*x, *y);
+            *result2 = GcdRecursive(*x, *y);
 
             printf("\nThe Result is :\n");
-            printf("\t Gcd(%ld, %ld) : %ld \n", p, q, result1);
-            printf("\t GcdRecursive(%ld, %ld) : %d \n", p, q, result2);
+            printf("\t Gcd(%ld, %ld) : %ld \n", *x, *y, *result1);
+            printf("\t GcdRecursive(%ld, %ld) : %d \n", *x, *y, *result2);
+
+            FreeMem(4, x, y, result1, result2);
             break;
         }
         case 4:
         {
             printf("\n\n---------------Matrix Multiplication---------------------\n\n");
+            long *row = (long *)malloc(sizeof(long));
             printf("Enter no of Row for First Matrix A: ");
-            scanf("%d", &row);
+            scanf("%d", row);
+
+            long *col = (long *)malloc(sizeof(long));
             printf("Enter no of Row for First Matrix A: ");
-            scanf("%d", &col);
-            if (row <= 0 || col <= 0)
+            scanf("%d", col);
+            if (*row <= 0 || *col <= 0)
             {
-                printf("Entered Row(%d) and Column(%d) value is invalid\n", row, col);
+                printf("Entered Row(%d) and Column(%d) value is invalid\n", *row, *col);
                 break;
             }
-            matrix2d *A = MakeMatrix(row, col, "A");
+            matrix2d *matA = MakeMatrix(*row, *col, "A");
 
             printf("Enter no of Row for First Matrix B : ");
-            scanf("%d", &row);
+            scanf("%d", row);
             printf("Enter no of Row for First Matrix B : ");
-            scanf("%d", &col);
-            if (row <= 0 || col <= 0)
+            scanf("%d", col);
+            if (*row <= 0 || *col <= 0)
             {
-                printf("Entered Row(%d) and Column(%d) value is invalid\n", row, col);
+                printf("Entered Row(%d) and Column(%d) value is invalid\n", *row, *col);
                 break;
             }
-            matrix2d *B = MakeMatrix(row, col, "B");
+            matrix2d *matB = MakeMatrix(*row, *col, "B");
 
-            ScanMatrix(A);
-            PrintMatrix(A);
-            ScanMatrix(B);
-            PrintMatrix(B);
-            matrix2d *result = MultiplyMatrix(*A, *B);
+            ScanMatrix(matA);
+            PrintMatrix(matA);
+
+            ScanMatrix(matB);
+            PrintMatrix(matB);
+
+            matrix2d *result = MultiplyMatrix(*matA, *matB);
+
             PrintMatrix(result);
-            free(A);
-            free(B);
-            free(result);
+
+            FreeMem(5, row, col, matA, matB, result);
             break;
+        }
+        case 5:
+        {
+            printf("\n\n---------------Bubble Sort---------------------\n\n");
+            printf("Enter the no of items to sort");
         }
         default:
             printf("Worng Choice!!!");
