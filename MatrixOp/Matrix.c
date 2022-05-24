@@ -22,6 +22,13 @@ matrix2d *MakeMatrix(int t_rows, int t_cols, char *name)
     return tempMat;
 }
 
+void FreeMatrix(matrix2d *matrix2d)
+{
+    free(matrix2d->data);
+    free(matrix2d->name);
+    free(matrix2d);
+}
+
 void ScanMatrix(matrix2d *matrix)
 {
     int i, j;

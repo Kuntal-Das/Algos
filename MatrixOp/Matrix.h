@@ -10,6 +10,9 @@ typedef struct matrix2d
 } matrix2d;
 
 matrix2d *MakeMatrix(int t_rows, int t_cols, char* name);
+
+void FreeMatrix(matrix2d *matrix2d);
+
 void ScanMatrix(matrix2d *matrix);
 void PrintMatrix(matrix2d *m);
 
