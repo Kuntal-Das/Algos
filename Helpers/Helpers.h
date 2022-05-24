@@ -22,5 +22,4 @@ char *AddLeft(char *str, char ch, int num);
 char *ConcatStr(int n_args, ...);
 
 void FreeMem(int n_args, ...);
-
 #endif // HELPERS_H_INCLUDED

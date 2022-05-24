@@ -4,16 +4,16 @@
 
 unsigned long long int KaratsubaMult(long long int m,long long int n)
 {
-    long long a,b,c,d;
+    long long int a,b,c,d;
 	int maxLength = MAX(Length(m), Length(n));
     unsigned long long int result;
 
 	if (maxLength <= 2) return m * n;
 
 	a = m / pow(10, maxLength / 2);
-	b = m % (long long)pow(10, maxLength / 2);
+	b = m % (long long int)pow(10, maxLength / 2);
 	c = n / pow(10, maxLength / 2);
-	d = n % (long long)pow(10, maxLength / 2);
+	d = n % (long long int)pow(10, maxLength / 2);
 
 	result = KaratsubaMult(b, d)
 		+ KaratsubaMult(b, c) * pow(10, maxLength / 2)

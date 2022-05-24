@@ -10,6 +10,7 @@ int Length(long num)
 		return 1;
 	return 1 + Length(num / 10);
 }
+
 void Swap(void *arg1, void *arg2, size_t len)
 {
 	unsigned char *p = arg1, *q = arg2, temp;
