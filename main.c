@@ -138,11 +138,11 @@ int main()
 
             double *arr = MakeDblArray(*n);
             ScanDblArr(arr, *n);
-            printf("Before Sorting:");
+            printf("\nBefore Sorting:");
             PrintDblArr(arr, *n);
 
             BubbleSort(arr, *n);
-            printf("After Sorting:");
+            printf("\nAfter Sorting:");
             PrintDblArr(arr, *n);
 
             FreeMem(2, n, arr);
@@ -151,8 +151,10 @@ int main()
         default:
             printf("Worng Choice!!!");
         }
-        if (ch == 0)
+        if (ch == 0){
+            printf("Exiting...");
             break;
+        }
     }
     /*int size = 0;
     printf("Enter the max size: ");
