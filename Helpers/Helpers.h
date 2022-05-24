@@ -20,6 +20,8 @@ char *SubString(char *str, int startIndex, int endIndex);
 char *AddRight(char *str, char ch, int num);
 char *AddLeft(char *str, char ch, int num);
 char *ConcatStr(int n_args, ...);
+int isStrsEqual(char *str1, char *str2);
 
 void FreeMem(int n_args, ...);
+
 #endif // HELPERS_H_INCLUDED

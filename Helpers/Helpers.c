@@ -187,3 +187,18 @@ void FreeMem(int n_args, ...)
 
 	va_end(ap);
 }
+
+int isStrsEqual(char *str1, char *str2)
+{
+	int i, l1 = strlen(str1), l2 = strlen(str2);
+
+	if (l1 != l2)
+		return 0;
+
+	for (i = 0; i < l1; i++)
+	{
+		if (str1[i] != str2[i])
+			return 0;
+	}
+	return 1;
+}
