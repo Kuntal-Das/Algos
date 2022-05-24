@@ -9,7 +9,10 @@ Helpers/Helpers.c
 LcmGcd/Gcd.c
 MatrixOp/Matrix.c 
 Multilplications/Karatsuba.c 
-Multilplications/Larusa.c main.c)
+Multilplications/Larusa.c 
+Sorting/BubbleSort.c
+Array/Array.c
+main.c)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

@@ -4,6 +4,8 @@
 #include "LcmGcd/LcmGcd.h"
 #include "MatrixOp/Matrix.h"
 #include "Helpers/Helpers.h"
+#include "Sorting/Sorting.h"
+#include "Array/Array.h"
 
 int main()
 {
@@ -18,6 +20,7 @@ int main()
         printf("\n2 for Karatsuba Multiplication");
         printf("\n3 for Gcd");
         printf("\n4 for Matrix");
+        printf("\n5 for BubbleSort");
         printf("\n0 for Exit");
         printf("\n Enter the correct choice:");
         scanf("%d", &ch);
@@ -129,7 +132,21 @@ int main()
         case 5:
         {
             printf("\n\n---------------Bubble Sort---------------------\n\n");
-            printf("Enter the no of items to sort");
+            int *n = (int *)malloc(sizeof(int));
+            printf("Enter the no of items to sort: ");
+            scanf("%d", n);
+
+            double *arr = MakeDblArray(*n);
+            ScanDblArr(arr, *n);
+            printf("Before Sorting:");
+            PrintDblArr(arr, *n);
+
+            BubbleSort(arr, *n);
+            printf("After Sorting:");
+            PrintDblArr(arr, *n);
+
+            FreeMem(2, n, arr);
+            break;
         }
         default:
             printf("Worng Choice!!!");
