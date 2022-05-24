@@ -101,7 +101,7 @@ void PrintAdjMatrix(Graph *G)
         for (j = 0; j < G->noOfVertices; j++)
         {
             double weight = GetEdgeWeight(v, G->vertices[j]);
-            if (weight == NULL)
+            if (weight == -1)
                 printf("--\t");
             else
                 printf("%d\t", weight);
@@ -120,5 +120,5 @@ double GetEdgeWeight(Vertex *v1, Vertex *v2)
             return v1->edges[i]->weight;
     }
 
-    return NULL;
+    return -1;
 }
