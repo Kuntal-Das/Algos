@@ -12,6 +12,7 @@ Multilplications/Karatsuba.c
 Multilplications/Larusa.c 
 Sorting/BubbleSort.c
 Array/Array.c
+Graph/Graph.c
 main.c)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
