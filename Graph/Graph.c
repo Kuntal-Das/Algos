@@ -24,7 +24,10 @@ void FreeGraph(Graph *G)
 
     // free Vertices
     for (i = G->noOfVertices - 1; i >= 0; i--)
+    {
+        free(G->vertices[i]->id);
         free(G->vertices[i]);
+    }
     free(G->vertices);
 
     // free Graph
@@ -49,6 +52,62 @@ void AddVertex(Graph *G, char *vertexId)
         G->vertices = (Vertex **)realloc(G->vertices, sizeof(Vertex *) * G->noOfVertices);
         G->vertices[G->noOfVertices - 1] = v;
     }
+}
+
+Vertex *RemoveVertex(Graph *G, char *id)
+{
+    int i, j, k, tempRemovedEdgeCount;
+    Vertex *vToRemove = FindVertex(G, id);
+    if (vToRemove == NULL)
+        return NULL;
+
+    // remove edges directed to other vertices
+    for (i = vToRemove->noOfEdges - 1; i >= 0; i--)
+    {
+        free(vToRemove->edges[i]);
+    }
+    free(vToRemove->edges);
+
+    // remove edges directed to vertex to remove
+    for (i = 0; i < G->noOfVertices; i++)
+    {
+        Vertex *tempV = G->vertices[i];
+        tempRemovedEdgeCount = 0;
+        // DirectedEdge *edgeTORemove;
+
+        // loop over all the vertices
+        j = 0, k = 0;
+        while (j < tempV->noOfEdges)
+        {
+            // if vertex have edge pointing to vertex to remove
+            if (tempV->edges[j]->v2 == vToRemove)
+            {
+                if (k <= j)
+                    k = j + 1;
+                while (tempV->edges[k]->v2 == vToRemove && k < tempV->noOfEdges)
+                    k++;
+                if (k == tempV->noOfEdges)
+                    break;
+
+                DirectedEdge *t = tempV->edges[k];
+                tempV->edges[k] = tempV->edges[j];
+                tempV->edges[j] = t;
+
+                tempRemovedEdgeCount++;
+            }
+            j++;
+        }
+        while (j < tempV->noOfEdges)
+        {
+            free(tempV->edges[j]);
+        }
+        G->vertices[i]->noOfEdges -= tempRemovedEdgeCount;
+        
+    }
+    G->vertices--;
+    free(vToRemove->id);
+    // remove Vertex
+    free(vToRemove);
 }
 
 void AddEdge(Graph *G, Vertex *v1Ptr, Vertex *v2Ptr, double weight)
@@ -101,7 +160,7 @@ void PrintAdjMatrix(Graph *G)
         for (j = 0; j < G->noOfVertices; j++)
         {
             double weight = GetEdgeWeight(v, G->vertices[j]);
-            if (weight == -1)
+            if (weight == NullEdgeWeight)
                 printf("--\t");
             else
                 printf("%d\t", weight);
@@ -120,5 +179,17 @@ double GetEdgeWeight(Vertex *v1, Vertex *v2)
             return v1->edges[i]->weight;
     }
 
-    return -1;
+    return NullEdgeWeight;
+}
+
+Vertex *FindVertex(Graph *G, char *id)
+{
+    int i;
+    for (i = 0; i < G->noOfVertices; i++)
+    {
+        if (isStrsEqual(G->vertices[i]->id, id))
+            return G->vertices[i];
+
+        return NULL;
+    }
 }
