@@ -3,6 +3,22 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stddef.h>
+
+char *strrev(char *str)
+{
+      char *p1, *p2;
+
+      if (! str || ! *str)
+            return str;
+      for (p1 = str, p2 = str + strlen(str) - 1; p2 > p1; ++p1, --p2)
+      {
+            *p1 ^= *p2;
+            *p2 ^= *p1;
+            *p1 ^= *p2;
+      }
+      return str;
+}
 
 int Length(long num)
 {
@@ -43,7 +59,7 @@ void SwapStrByRef(char **arg1, char **arg2)
 
 char *ToStr(long num)
 {
-	int size = (int)(log10(num));
+	int size = (int)log10((double)num);
 	char *charArr = (char *)calloc(size + 1, sizeof(char));
 
 	sprintf(charArr, "%ld", num);

@@ -1,9 +1,9 @@
 #ifndef HELPERS_H_INCLUDED
 #define HELPERS_H_INCLUDED
 
-#include <stddef.h>
-
 #define MAX(X, Y) ((X > Y) ? X : Y)
+
+char *strrev(char *str);
 
 int Length(long num);
 
