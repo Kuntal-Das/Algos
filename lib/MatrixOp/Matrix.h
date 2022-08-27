@@ -1,6 +1,8 @@
 #ifndef MATRIX_H_INCLUDED
 #define MATRIX_H_INCLUDED
 
+#pragma once
+
 typedef struct matrix2d
 {
     char *name;

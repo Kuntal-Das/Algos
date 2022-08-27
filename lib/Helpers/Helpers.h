@@ -1,6 +1,8 @@
 #ifndef HELPERS_H_INCLUDED
 #define HELPERS_H_INCLUDED
 
+#pragma once
+
 #define MAX(X, Y) ((X > Y) ? X : Y)
 
 char *strrev(char *str);

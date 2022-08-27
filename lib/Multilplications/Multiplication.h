@@ -1,6 +1,8 @@
 #ifndef MULTIPLUCATION_H_INCLUDED
 #define MULTIPLUCATION_H_INCLUDED
 
+#pragma once
+
 long LarusaMult(long x, long y);
 long LarusaMultRecursive(long x, long y);
 
