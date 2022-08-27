@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stddef.h>
+#include <math.h>
 
 char *strrev(char *str)
 {
