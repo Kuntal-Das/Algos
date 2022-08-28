@@ -1,6 +1,8 @@
 #ifndef GRAPH_H_INCLUDED
 #define GRAPH_H_INCLUDED
 
+#pragma once
+
 typedef struct DirectedEdge DirectedEdge;
 typedef struct Vertex Vertex;
 typedef struct Graph Graph;
@@ -30,9 +32,12 @@ struct Graph
 Graph *MakeGraph();
 
 void AddVertex(Graph *G, char *id);
+void RemoveVertex(Graph *G, char *id);
 void AddEdge(Graph *G, Vertex *v1Ptr, Vertex *v2Ptr, double weight);
+void RemoveEdge(Graph *G, Vertex *v1Ptr, Vertex *v2Ptr, double weight);
 
 void PrintAdjMatrix(Graph *G);
+void PrintAdjList(Graph *G);
 double GetEdgeWeight(Vertex *v1, Vertex *v2);
 
 void FreeGraph(Graph *G);

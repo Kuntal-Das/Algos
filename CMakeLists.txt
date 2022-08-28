@@ -4,22 +4,32 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(ALGOS VERSION 1.0)
 
-add_library(HelpersLib STATIC lib/Helpers/Helpers.c)
-add_library(ArrayLib STATIC lib/Array/Array.c)
+file(GLOB_RECURSE ARRAY_FILES lib/Array/*.c)
+add_library(ArrayLib STATIC lib/Array/Array.h ${ARRAY_FILES})
 
-add_library(MultilplicationsLib STATIC lib/Multilplications/Larusa.c lib/Multilplications/Karatsuba.c)
-target_link_libraries(MultilplicationsLib PUBLIC HelpersLib)
+file(GLOB_RECURSE HELPERS_FILES lib/Helpers/*.c)
+add_library(HelpersLib STATIC lib/Helpers/Helpers.h ${HELPERS_FILES} )
 
-add_library(LcmGcdLib STATIC lib/LcmGcd/Gcd.c)
+file(GLOB_RECURSE LCMGCD_FILES lib/LcmGcd/*.c)
+add_library(LcmGcdLib STATIC lib/LcmGcd/LcmGcd.h ${LCMGCD_FILES})
 
-add_library(MatrixLib STATIC lib/MatrixOp/Matrix.c)
+file(GLOB_RECURSE SORT_FILES lib/Sorting/*.c)
+add_library(SortingLib STATIC lib/Sorting/Sorting.h ${SORT_FILES})
+
+file(GLOB_RECURSE OTHERS_FILES lib/Others/*.c)
+add_library(OthersLib STATIC lib/Others/Others.h ${OTHERS_FILES})
+
+file(GLOB_RECURSE MULT_FILES lib/Multiplications/*.c)
+add_library(MultiplicationsLib STATIC lib/Multiplications/Multilplication.h ${MULT_FILES})
+target_link_libraries(MultiplicationsLib PUBLIC HelpersLib)
+
+file(GLOB_RECURSE MATRIX_FILES lib/MatrixOp/*.c)
+add_library(MatrixLib STATIC lib/MatrixOp/Matrix.h ${MATRIX_FILES})
 target_link_libraries(MatrixLib PUBLIC HelpersLib)
-
-add_library(SortingLib STATIC lib/Sorting/BubbleSort.c)
 
 add_executable(ALGOS src/main.c)
 target_link_libraries(ALGOS 
-PUBLIC ArrayLib HelpersLib MultilplicationsLib LcmGcdLib MatrixLib SortingLib 
+PUBLIC ArrayLib HelpersLib MultiplicationsLib LcmGcdLib MatrixLib SortingLib OthersLib
 PRIVATE m)
 
 
