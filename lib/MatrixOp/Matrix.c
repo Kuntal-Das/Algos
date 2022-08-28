@@ -1,10 +1,8 @@
-#include "Matrix.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Matrix.h"
 #include "../Helpers/Helpers.h"
-// #include <iostream>
-// #include <cstdlib>
 
 // using namespace std;
 

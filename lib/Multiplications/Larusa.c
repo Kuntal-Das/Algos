@@ -1,3 +1,5 @@
+#include "Multilplication.h"
+
 long LarusaMult(long x, long y)
 {
 	long result = 0;

@@ -4,14 +4,14 @@
 
 void SelectionSort(double *arr, long length)
 {
-    long i, maxIndx = 0;
+    long i, minIndx = 0;
 
     for (i = 0; i < length; i++)
     {
-        maxIndx = GetIndexOfMinElement(arr, i, length - 1);
-        if (maxIndx != i)
+        minIndx = GetIndexOfMinElement(arr, i, length - 1);
+        if (minIndx != i)
         {
-            SwapDoubleByRef(&arr[i], &arr[maxIndx]);
+            SwapDoubleByRef(&arr[i], &arr[minIndx]);
         }
     }
 }

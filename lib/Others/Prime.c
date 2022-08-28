@@ -1,3 +1,5 @@
+#include "Others.h"
+
 int IsPrime(unsigned long long int number)
 {
     int devideCount = 0;
