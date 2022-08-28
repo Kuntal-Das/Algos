@@ -7,18 +7,19 @@ project(ALGOS VERSION 1.0)
 file(GLOB_RECURSE ARRAY_FILES lib/Array/*.c)
 add_library(ArrayLib STATIC lib/Array/Array.h ${ARRAY_FILES})
 
-file(GLOB_RECURSE HELPERS_FILES lib/Helpers/*.c)
-add_library(HelpersLib STATIC lib/Helpers/Helpers.h ${HELPERS_FILES} )
-
 file(GLOB_RECURSE LCMGCD_FILES lib/LcmGcd/*.c)
 add_library(LcmGcdLib STATIC lib/LcmGcd/LcmGcd.h ${LCMGCD_FILES})
 
 file(GLOB_RECURSE OTHERS_FILES lib/Others/*.c)
 add_library(OthersLib STATIC lib/Others/Others.h ${OTHERS_FILES})
 
+file(GLOB_RECURSE HELPERS_FILES lib/Helpers/*.c)
+add_library(HelpersLib STATIC lib/Helpers/Helpers.h ${HELPERS_FILES})
+target_link_libraries(HelpersLib PRIVATE m)
+
 file(GLOB_RECURSE MULT_FILES lib/Multiplications/*.c)
 add_library(MultiplicationsLib STATIC lib/Multiplications/Multilplication.h ${MULT_FILES})
-target_link_libraries(MultiplicationsLib PUBLIC HelpersLib)
+target_link_libraries(MultiplicationsLib PUBLIC HelpersLib PRIVATE m)
 
 file(GLOB_RECURSE MATRIX_FILES lib/MatrixOp/*.c)
 add_library(MatrixLib STATIC lib/MatrixOp/Matrix.h ${MATRIX_FILES})
@@ -30,8 +31,7 @@ target_link_libraries(SortingLib PUBLIC HelpersLib ArrayLib)
 
 add_executable(ALGOS src/main.c)
 target_link_libraries(ALGOS 
-PUBLIC ArrayLib HelpersLib MultiplicationsLib LcmGcdLib MatrixLib SortingLib OthersLib
-PRIVATE m)
+PUBLIC ArrayLib HelpersLib MultiplicationsLib LcmGcdLib MatrixLib SortingLib OthersLib)
 
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
