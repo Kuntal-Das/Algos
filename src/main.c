@@ -10,10 +10,9 @@
 
 int main()
 {
-    int ch, ch2; // row, col;
-    // long p, q, result1, result2;
-    // long long int x, y;
-    // unsigned long long int result;
+    int ch, ch2;
+    freopen("/home/mkr19/DEV/repos/Algos/IO/stdin.txt", "r", stdin);
+    freopen("/home/mkr19/DEV/repos/Algos/IO/stdout.txt", "w", stdout);
 
     while (1)
     {
@@ -204,6 +203,10 @@ int main()
             case 3:
                 printf("\n\n---------------Insertion Sort---------------------\n\n");
                 InsertionSort(arr, *n);
+                break;
+            case 4:
+                printf("\n\n---------------Quick Sort---------------------\n\n");
+                QuickSort(arr, 0, *n - 1);
                 break;
             default:
                 printf("Worng Choice!!!");

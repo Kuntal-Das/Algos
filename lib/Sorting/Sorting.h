@@ -8,4 +8,6 @@ void SelectionSortMax(double *arr, long length);
 void SelectionSortMin(double *arr, long length);
 void InsertionSort(double *arr,long length);
 
+void QuickSort(double *arr, long startIndx, long endIndx);
+
 #endif
