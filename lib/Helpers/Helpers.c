@@ -2,8 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <stddef.h>
 #include <math.h>
+#include "Helpers.h"
 
 char *strrev(char *str)
 {

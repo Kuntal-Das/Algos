@@ -2,7 +2,7 @@
 #define HELPERS_H_INCLUDED
 
 #pragma once
-
+#include <stddef.h>
 #define MAX(X, Y) ((X > Y) ? X : Y)
 
 char *strrev(char *str);
@@ -11,7 +11,7 @@ int Length(long num);
 
 void Swap(void *arg1, void *arg2, size_t len);
 
-void SwapLongByRef(int *arg1, int *arg2);
+void SwapLongByRef(long *arg1, long *arg2);
 void SwapDoubleByRef(double *arg1, double *arg2);
 void SwapStrByRef(char **arg1, char **arg2);
 
