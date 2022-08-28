@@ -3,9 +3,10 @@
 
 #pragma once
 
-double *MakeDblArray(int lenght);
+double *MakeDblArray(long lenght);
 
-void PrintDblArr(double *arr, int lenght);
-void ScanDblArr(double *arr, int lenght);
+void PrintDblArr(double *arr, long lenght);
+void ScanDblArr(double *arr, long lenght);
+long GetIndexOfMaxElement(double *arr, long length);
 
 #endif
