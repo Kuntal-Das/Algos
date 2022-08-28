@@ -199,7 +199,11 @@ int main()
                 break;
             case 2:
                 printf("\n\n---------------Selection Sort---------------------\n\n");
-                SelectionSort(arr, *n);
+                SelectionSortMin(arr, *n);
+                break;
+            case 3:
+                printf("\n\n---------------Insertion Sort---------------------\n\n");
+                InsertionSort(arr, *n);
                 break;
             default:
                 printf("Worng Choice!!!");
