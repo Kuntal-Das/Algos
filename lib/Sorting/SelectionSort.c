@@ -2,6 +2,16 @@
 #include "../Array/Array.h"
 #include "../Helpers/Helpers.h"
 
+/*
+Time Complexity :
+    Best  - O(n^2)
+    Worst - O(n^2)
+    Avg   - O(n^2)
+
+Space Complesity: O(1)
+
+Preserves Order : No
+*/
 void SelectionSortMin(double *arr, long length)
 {
     long i, minIndx = 0;
@@ -16,6 +26,16 @@ void SelectionSortMin(double *arr, long length)
     }
 }
 
+/*
+Time Complexity :
+    Best  - O(n^2)
+    Worst - O(n^2)
+    Avg   - O(n^2)
+
+Space Complesity: O(1)
+
+Preserves Order : No
+*/
 void SelectionSortMax(double *arr, long length)
 {
     long i, maxIndx = 0;

@@ -1,6 +1,16 @@
 #include "Sorting.h"
 #include "../Helpers/Helpers.h"
 
+/*
+Time Complexity :
+    Best  - O(n)
+    Worst - O(n^2)
+    Avg   - O(n^2)
+
+Space Complesity: O(1)
+
+Preserves Order : Yes
+*/
 void BubbleSort(double *arr, long length)
 {
     int i = 0, j = 0;
