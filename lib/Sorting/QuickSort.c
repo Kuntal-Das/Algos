@@ -1,8 +1,9 @@
+#include <stdlib.h>
+#include <time.h>
 #include "Sorting.h"
 #include "../Helpers/Helpers.h"
 
-
-long Partition(double *arr, long startIndx, long endIndx)
+long PartitionWithStartIndexPivot(double *arr, long startIndx, long endIndx)
 {
     long pivotIndx = startIndx;
     long i = startIndx + 1, j = endIndx;
@@ -23,6 +24,47 @@ long Partition(double *arr, long startIndx, long endIndx)
     return j;
 }
 
+long PartitionWithRandomPivot(double *arr, long startIndx, long endIndx)
+{
+    srandom(time(NULL));
+    long pivotIndx = startIndx + (random() % (endIndx - startIndx));
+    long high = startIndx, low = endIndx;
+    while (high <= low)
+    {
+        while (arr[high] <= arr[pivotIndx] && high <= endIndx)
+        {
+            high++;
+            if (high == pivotIndx)
+                high++;
+        }
+
+        while (arr[low] > arr[pivotIndx] && low >= startIndx)
+        {
+            low--;
+            if (low == pivotIndx)
+                low--;
+        }
+
+        if (high < low)
+            SwapDoubleByRef(&arr[high], &arr[low]);
+    }
+    // if ((low < pivotIndx && high > pivotIndx))
+    // {
+    //     return pivotIndx;
+    // }
+    if (low < pivotIndx && high < pivotIndx && high <= endIndx)
+    {
+        SwapDoubleByRef(&arr[high], &arr[pivotIndx]);
+        return high;
+    }
+    else if (low > pivotIndx && high > pivotIndx && low >= startIndx)
+    {
+        SwapDoubleByRef(&arr[low], &arr[pivotIndx]);
+        return low;
+    }
+    return pivotIndx;
+}
+
 /*
 Time Complexity :
     Best  - O(n*log(n))
@@ -37,8 +79,9 @@ void QuickSort(double *arr, long startIndx, long endIndx)
 {
     if (startIndx < endIndx)
     {
-        long pIndx = Partition(arr, startIndx, endIndx);
-        QuickSort(arr, startIndx, pIndx - 1);
-        QuickSort(arr, pIndx + 1, endIndx);
+        // long pivotIndx = PartitionWithStartIndexPivot(arr, startIndx, endIndx);
+        long pivotIndx = PartitionWithRandomPivot(arr, startIndx, endIndx);
+        QuickSort(arr, startIndx, pivotIndx - 1);
+        QuickSort(arr, pivotIndx + 1, endIndx);
     }
 }
