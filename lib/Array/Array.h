@@ -7,6 +7,7 @@ double *MakeDblArray(long lenght);
 
 void PrintDblArr(double *arr, long lenght);
 void ScanDblArr(double *arr, long lenght);
-long GetIndexOfMaxElement(double *arr, long length);
+long GetIndexOfMaxElement(double *arr, long startIndx, long endIndx);
+long GetIndexOfMinElement(double *arr, long startIndx, long endIndx);
 
 #endif

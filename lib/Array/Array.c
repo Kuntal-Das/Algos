@@ -28,11 +28,11 @@ void ScanDblArr(double *arr, long lenght)
     }
 }
 
-long GetIndexOfMaxElement(double *arr, long length)
+long GetIndexOfMaxElement(double *arr, long startIndx, long endIndx)
 {
-    long i, maxIndx = 0;
+    long i, maxIndx = startIndx;
     double max = arr[0];
-    for (i = 1; i <= length; i++)
+    for (i = startIndx + 1; i <= endIndx; i++)
     {
         if (arr[i] > max)
         {
@@ -41,4 +41,19 @@ long GetIndexOfMaxElement(double *arr, long length)
         }
     }
     return maxIndx;
+}
+
+long GetIndexOfMinElement(double *arr, long startIndx, long endIndx)
+{
+    long i, minIndx = startIndx;
+    double min = arr[startIndx];
+    for (i = startIndx + 1; i <= endIndx; i++)
+    {
+        if (arr[i] < min)
+        {
+            min = arr[i];
+            minIndx = i;
+        }
+    }
+    return minIndx;
 }
