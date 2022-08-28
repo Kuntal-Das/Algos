@@ -11,8 +11,8 @@
 int main()
 {
     int ch, ch2;
-    freopen("/home/mkr19/DEV/repos/Algos/IO/stdin.txt", "r", stdin);
-    freopen("/home/mkr19/DEV/repos/Algos/IO/stdout.txt", "w", stdout);
+    freopen("../IO/stdin.txt", "r", stdin);
+    freopen("../IO/stdout.txt", "w", stdout);
 
     while (1)
     {
