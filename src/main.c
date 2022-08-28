@@ -122,6 +122,7 @@ int main()
                 printf("Worng Choice!!!");
                 break;
             }
+            break;
         }
         case 3:
         {
@@ -172,9 +173,9 @@ int main()
         case 4:
         {
             printf("\n\n----------------Sorting--------------------\n\n");
-            int *n = (int *)malloc(sizeof(int));
+            long *n = (long *)malloc(sizeof(long));
             printf("Enter the no of items to sort: ");
-            scanf("%d", n);
+            scanf("%ld", n);
 
             double *arr = MakeDblArray(*n);
             ScanDblArr(arr, *n);
@@ -196,6 +197,10 @@ int main()
                 printf("\n\n---------------Bubble Sort---------------------\n\n");
                 BubbleSort(arr, *n);
                 break;
+            case 2:
+                printf("\n\n---------------Selection Sort---------------------\n\n");
+                SelectionSort(arr, *n);
+                break;
             default:
                 printf("Worng Choice!!!");
                 break;
@@ -205,6 +210,7 @@ int main()
             PrintDblArr(arr, *n);
 
             FreeMem(2, n, arr);
+            break;
         }
         case 5:
         {

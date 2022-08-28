@@ -1,4 +1,7 @@
-void BubbleSort(double *arr, int length)
+#include "Sorting.h"
+#include "../Helpers/Helpers.h"
+
+void BubbleSort(double *arr, long length)
 {
     int i = 0, j = 0;
     for (i = 0; i < length; i++)
@@ -7,9 +10,10 @@ void BubbleSort(double *arr, int length)
         {
             if (arr[j] > arr[j + 1])
             {
-                arr[j] = arr[j] + arr[j + 1];
-                arr[j + 1] = arr[j] - arr[j + 1];
-                arr[j] = arr[j] - arr[j + 1];
+                SwapDoubleByRef(&arr[j], &arr[j + 1]);
+                // arr[j] = arr[j] + arr[j + 1];
+                // arr[j + 1] = arr[j] - arr[j + 1];
+                // arr[j] = arr[j] - arr[j + 1];
             }
             // SwapDoubleByRef(&arr[j], &arr[j + 1]);
         }

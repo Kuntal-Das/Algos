@@ -3,6 +3,7 @@
 
 #pragma once
 
-void *BubbleSort(double *arr, int length);
+void SelectionSort(double *arr, long length);
+void BubbleSort(double *arr, long length);
 
 #endif
