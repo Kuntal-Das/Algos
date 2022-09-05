@@ -4,8 +4,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(ALGOS VERSION 1.0)
 
-file(GLOB_RECURSE ARRAY_FILES lib/Array/*.c)
-add_library(ArrayLib STATIC lib/Array/Array.h ${ARRAY_FILES})
+file(GLOB_RECURSE CDS_FILES lib/DS/*/*.c)
+file(GLOB_RECURSE HDS_FILES lib/DS/*/*.h)
+add_library(ArrayLib STATIC ${HDS_FILES} ${CDS_FILES})
 
 file(GLOB_RECURSE LCMGCD_FILES lib/LcmGcd/*.c)
 add_library(LcmGcdLib STATIC lib/LcmGcd/LcmGcd.h ${LCMGCD_FILES})

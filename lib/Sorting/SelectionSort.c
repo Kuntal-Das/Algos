@@ -1,5 +1,5 @@
 #include "Sorting.h"
-#include "../Array/Array.h"
+#include "../DS/Array/Array.h"
 #include "../Helpers/Helpers.h"
 
 /*

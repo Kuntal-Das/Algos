@@ -5,7 +5,7 @@
 #include "../lib/MatrixOp/Matrix.h"
 #include "../lib/Helpers/Helpers.h"
 #include "../lib/Sorting/Sorting.h"
-#include "../lib/Array/Array.h"
+#include "../lib/DS/Array/Array.h"
 #include "../lib/Others/Others.h"
 
 int main()
