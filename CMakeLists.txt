@@ -6,7 +6,7 @@ project(ALGOS VERSION 1.0)
 
 file(GLOB_RECURSE CDS_FILES lib/DS/*/*.c)
 file(GLOB_RECURSE HDS_FILES lib/DS/*/*.h)
-add_library(ArrayLib STATIC ${HDS_FILES} ${CDS_FILES})
+add_library(DsLib STATIC ${HDS_FILES} ${CDS_FILES})
 
 file(GLOB_RECURSE LCMGCD_FILES lib/LcmGcd/*.c)
 add_library(LcmGcdLib STATIC lib/LcmGcd/LcmGcd.h ${LCMGCD_FILES})
@@ -28,11 +28,11 @@ target_link_libraries(MatrixLib PUBLIC HelpersLib)
 
 file(GLOB_RECURSE SORT_FILES lib/Sorting/*.c)
 add_library(SortingLib STATIC lib/Sorting/Sorting.h ${SORT_FILES})
-target_link_libraries(SortingLib PUBLIC HelpersLib ArrayLib)
+target_link_libraries(SortingLib PUBLIC HelpersLib DsLib)
 
 add_executable(ALGOS src/main.c)
 target_link_libraries(ALGOS 
-PUBLIC ArrayLib HelpersLib MultiplicationsLib LcmGcdLib MatrixLib SortingLib OthersLib)
+PUBLIC DsLib HelpersLib MultiplicationsLib LcmGcdLib MatrixLib SortingLib OthersLib)
 
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

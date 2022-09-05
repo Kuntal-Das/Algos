@@ -208,6 +208,10 @@ int main()
                 printf("\n\n---------------Quick Sort---------------------\n\n");
                 QuickSort(arr, 0, *n - 1);
                 break;
+            case 6:
+                printf("\n\n---------------Merge Sort---------------------\n\n");
+                MergeSort(arr, 0, *n - 1);
+                break;
             default:
                 printf("Worng Choice!!!");
                 break;

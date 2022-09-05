@@ -7,26 +7,24 @@
 0 for Exit
  Enter the correct choice:
 
----------------Matrix Multiplication---------------------
+----------------Sorting--------------------
 
-Enter no of Row for First Matrix A: Enter no of Row for First Matrix A: Enter no of Row for First Matrix B : Enter no of Row for First Matrix B : 
-A[0, 0] : A[0, 1] : A[0, 2] : A[1, 0] : A[1, 1] : A[1, 2] : A[2, 0] : A[2, 1] : A[2, 2] : A[3, 0] : A[3, 1] : A[3, 2] : A[4, 0] : A[4, 1] : A[4, 2] : Matrix A
-	12.000000	36.000000	8.000000	
-	2.000000	7.000000	-10.000000	
-	-9.000000	-8.000000	-7.000000	
-	-6.000000	-5.000000	-4.000000	
-	-3.000000	-2.000000	-1.000000	
+Enter the no of items to sort: 
+Enter Element 0 : Enter Element 1 : Enter Element 2 : Enter Element 3 : Enter Element 4 : Enter Element 5 : Enter Element 6 : Enter Element 7 : Enter Element 8 : Enter Element 9 : 
+Before Sorting:10.000000, -9.000000, 8.000000, -7.000000, 6.000000, -5.000000, 4.000000, -3.000000, 2.000000, -1.000000, 
 
-B[0, 0] : B[0, 1] : B[0, 2] : B[0, 3] : B[0, 4] : B[1, 0] : B[1, 1] : B[1, 2] : B[1, 3] : B[1, 4] : B[2, 0] : B[2, 1] : B[2, 2] : B[2, 3] : B[2, 4] : Matrix B
-	75.000000	66.000000	3.000000	96.000000	32.000000	
-	54.000000	65.000000	87.000000	26.000000	37.000000	
-	99.000000	49.000000	97.000000	23.000000	87.000000	
-Matrix ( AB )
-	3636.000000	3524.000000	3944.000000	2272.000000	2412.000000	
-	-462.000000	97.000000	-355.000000	144.000000	-547.000000	
-	-1800.000000	-1457.000000	-1402.000000	-1233.000000	-1193.000000	
-	-1116.000000	-917.000000	-841.000000	-798.000000	-725.000000	
-	-432.000000	-377.000000	-280.000000	-363.000000	-257.000000	
+1 for Bubble Sort
+2 for Selection Sort
+3 for Insertion Sort
+4 for Quick Sort
+5 for Heap Sort
+6 for Merge Sort
+ Enter the correct choice:
+
+---------------Merge Sort---------------------
+
+
+After Sorting:-9.000000, -7.000000, -5.000000, -3.000000, -1.000000, 2.000000, 4.000000, 6.000000, 8.000000, 10.000000, 
 
 1 for Integer Multiplication
 2 for GCD LCM
