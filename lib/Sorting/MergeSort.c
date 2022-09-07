@@ -3,6 +3,32 @@
 #include "../Helpers/Helpers.h"
 #include "../DS/Array/Array.h"
 
+void InPlaceMergeWithSelectionSort(double *arr, long start, long mid, long end)
+{
+    long i = start, j = mid + 1, k = 0;
+    double temp;
+    while (i <= mid && j <= end)
+    {
+        if (arr[i] > arr[j])
+        {
+            SwapDoubleByRef(&arr[i], &arr[j]);
+            temp = arr[j];
+            for (k = j + 1; k <= end; k++)
+            {
+                if (temp > arr[k])
+                {
+                    arr[k - 1] = arr[k];
+                }
+                else
+                {
+                    break;
+                }
+            }
+            arr[k - 1] = temp;
+        }
+        i++;
+    }
+}
 void Merge(double *arr, long start, long mid, long end)
 {
     long i = start, j = mid + 1, k = start;
@@ -36,11 +62,7 @@ void Merge(double *arr, long start, long mid, long end)
     while (i <= mid)
     {
         arr[k++] = tempArr[i - start];
-        i++; // if (i - k < 0)tempArr[k - start] = arr[k];
-        // if (i <= mid)
-        //     tempArr[i - start] = arr[i];
-        // else
-        //     break;
+        i++;
     }
     while (j <= end)
     {
@@ -63,5 +85,6 @@ void MergeSort(double *arr, long startIndx, long endIndx)
 
     MergeSort(arr, startIndx, mid);
     MergeSort(arr, mid + 1, endIndx);
-    Merge(arr, startIndx, mid, endIndx);
+    // Merge(arr, startIndx, mid, endIndx);
+    InPlaceMergeWithSelectionSort(arr, startIndx, mid, endIndx);
 }
