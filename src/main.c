@@ -110,7 +110,7 @@ int main()
 
                 printf("\nThe Result is :\n");
                 printf("\t Gcd(%ld, %ld) : %ld \n", *x, *y, *result1);
-                printf("\t GcdRecursive(%ld, %ld) : %d \n", *x, *y, *result2);
+                printf("\t GcdRecursive(%ld, %ld) : %ld \n", *x, *y, *result2);
 
                 FreeMem(4, x, y, result1, result2);
                 break;
@@ -207,6 +207,10 @@ int main()
             case 4:
                 printf("\n\n---------------Quick Sort---------------------\n\n");
                 QuickSort(arr, 0, *n - 1);
+                break;
+            case 5:
+                printf("\n\n---------------Heap Sort---------------------\n\n");
+                // HeapSort(arr, *n);
                 break;
             case 6:
                 printf("\n\n---------------Merge Sort---------------------\n\n");

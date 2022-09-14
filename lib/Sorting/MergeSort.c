@@ -3,6 +3,20 @@
 #include "../Helpers/Helpers.h"
 #include "../DS/Array/Array.h"
 
+void InPlaceMergeWithGap(double *arr, long start, long mid, long end)
+{
+    long i = 0, j = 0, gap = (end - start) / 2;
+    while (gap >= 1)
+    {
+        for (i = start; i + gap <= end; i++)
+        {
+            if (arr[i] > arr[i + gap])
+                SwapDoubleByRef(&arr[i], &arr[i + gap]);
+        }
+        gap /= 2;
+    }
+}
+
 void InPlaceMergeWithSelectionSort(double *arr, long start, long mid, long end)
 {
     long i = start, j = mid + 1, k = 0;
@@ -86,5 +100,6 @@ void MergeSort(double *arr, long startIndx, long endIndx)
     MergeSort(arr, startIndx, mid);
     MergeSort(arr, mid + 1, endIndx);
     // Merge(arr, startIndx, mid, endIndx);
-    InPlaceMergeWithSelectionSort(arr, startIndx, mid, endIndx);
+    // InPlaceMergeWithSelectionSort(arr, startIndx, mid, endIndx);
+    InPlaceMergeWithGap(arr, startIndx, mid, endIndx);
 }
